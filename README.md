@@ -1,8 +1,15 @@
 # 🚦 AI-Powered Real-Time Accident Detection
 
-This project is an **AI-based accident detection system** built with Python, OpenCV, and YOLOv4.  
-It processes live video streams from CCTV cameras or webcams to detect collisions between vehicles or persons.  
-Upon detection, the system **plays an alarm sound** and can **send instant alerts** (via Twilio) to improve emergency response times and enhance smart city safety.
+## Overview
+
+This project is an AI-powered accident detection system developed using **Python**, **OpenCV**, and **YOLOv4**.  
+It processes live video streams from a connected webcam to detect collisions between vehicles or people.  
+
+While the current implementation uses a webcam, it can be integrated with CCTV or IP camera feeds, making it suitable for **smart city surveillance** and **road safety monitoring**.  
+
+Upon detecting an accident:
+1. An alarm sound is played.
+2. (Optional) An instant alert is sent via **Twilio** to notify emergency contacts.
 
 ---
 
@@ -17,13 +24,12 @@ Upon detection, the system **plays an alarm sound** and can **send instant alert
 ---
 
 ## 🗂 Project Structure
-Accident-Detection/
-│── main.py # Main script to capture video and detect accidents
-│── alarm.wav # Alarm sound file
-│── yolov4.cfg # YOLOv4 configuration file
-│── yolov4.weights # YOLOv4 pretrained weights
-│── coco.names # Object class labels
-│── requirements.txt # Python dependencies
+
+│── main.py                # Main script to capture video and detect accidents  
+│── yolov4.cfg             # YOLOv4 configuration file  
+│── yolov4.weights         # YOLOv4 pretrained weights  
+│── coco.names             # Object class labels  
+│── requirements.txt       # Python dependencies  
 
 ---
 
@@ -37,7 +43,7 @@ Accident-Detection/
 **Install dependencies:**
 ```bash
 pip install opencv-python-headless numpy twilio
-
+```
 **▶ How to Run**
 
 **Clone the repository**
@@ -57,18 +63,23 @@ python main.py
 
 !python main.py
 
-**Optional: Configure Twilio credentials in the script for SMS/call alerts.**
+**Set Environment Variables**
 
+Before running the script, set your Twilio credentials and alert phone number:
+
+```bash
 export TWILIO_SID="your_sid"
 export TWILIO_AUTH_TOKEN="your_auth_token"
 export ALERT_PHONE="your_phone_number"
+```
 
 **How It Works**
 
-1.Captures live frames from a connected camera.
-2.Detects vehicles and people (via image processing or YOLOv4).
-3.Checks overlap between bounding boxes—if above threshold, it considers it an accident.
-4.On Detection:
-  Plays alarm
-  Optionally initiates a phone call via Twilio.
-5.Provides live visual feedback with detection boxes.
+1. Captures live frames from a connected camera.  
+2. Detects vehicles and people (via image processing or YOLOv4).  
+3. Checks overlap between bounding boxes—if above threshold, it considers it an accident.  
+4. On Detection:  
+   - Plays alarm  
+   - Optionally initiates a phone call via Twilio.  
+5. Provides live visual feedback with detection boxes.  
+
