@@ -56,13 +56,13 @@ cd Accident-Detection
 Place yolov4.cfg, yolov4.weights, and coco.names in the project directory.
 
 **Run the script**
-
+```bash
 python main.py
-
+```
 **or in Google Colab:**
-
+```bash
 !python main.py
-
+```
 **Set Environment Variables**
 
 Before running the script, set your Twilio credentials and alert phone number:
